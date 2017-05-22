@@ -30,15 +30,23 @@
             <source>assembly/docs/change_log.txt</source>
             <outputDirectory>/docs</outputDirectory>
             <fileMode>0644</fileMode>
-            <filtered>true</filtered>
+            <filtered>false</filtered>
         </file>
         <file>
             <source>assembly/docs/update-${project.artifactId}-${project.version}.txt
             </source>
             <outputDirectory>/docs</outputDirectory>
             <fileMode>0644</fileMode>
-            <filtered>true</filtered>
+            <filtered>false</filtered>
         </file>
+        <!-- for windows -->
+        <file>
+            <source>assembly/bin/launcher.exe</source>
+            <outputDirectory>/</outputDirectory>
+            <fileMode>0744</fileMode>
+            <filtered>false</filtered>
+        </file>
+        
         <!-- for split package -->
         <!--<file>-->
         <!--<source>assembly/bin/launcher.bat</source>-->
@@ -63,15 +71,17 @@
         </file>
         <file>
             <source>assembly/bin/run-onejar.bat</source>
-            <outputDirectory>bin/</outputDirectory>
+            <outputDirectory>bin</outputDirectory>
+            <destName>launcher.bat</destName>
             <fileMode>0744</fileMode>
-            <filtered>true</filtered>
+            <filtered>false</filtered>
         </file>
         <file>
             <source>assembly/bin/run-onejar.sh</source>
-            <outputDirectory>bin/</outputDirectory>
+            <outputDirectory>bin</outputDirectory>
+            <destName>launcher.sh</destName>
             <fileMode>0744</fileMode>
-            <filtered>true</filtered>
+            <filtered>false</filtered>
         </file>
     </files>
     <!-- examples -->
