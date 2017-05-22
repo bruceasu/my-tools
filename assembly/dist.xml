@@ -6,6 +6,20 @@
         <format>zip</format>
     </formats>
     <baseDirectory>${project.artifactId}</baseDirectory>
+	<!-- export jars.
+	<dependencySets>
+		<dependencySet>
+			<scope>runtime</scope>
+			<outputDirectory>lib/</outputDirectory>
+			<includes>
+				<include>*</include>
+			</includes>
+			<excludes>
+				<exclude>com.huadao:huadao-monitor</exclude>
+			</excludes>
+		</dependencySet>
+	</dependencySets>
+	-->
     <!-- configuratoin files. -->
     <fileSets>
         <fileSet>
