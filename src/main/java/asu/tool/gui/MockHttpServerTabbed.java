@@ -1,8 +1,10 @@
 package asu.tool.gui;
 
+import asu.tool.tools.GUITools;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
+import javax.swing.undo.UndoManager;
 
 /**
  * ${document}
@@ -13,16 +15,18 @@ import javax.swing.*;
  * @since 2017/3/3 9:44
  */
 public class MockHttpServerTabbed {
-  private JTextField mockHttpServerPort;
-  private JTextField mockHttpServerVerticleDir;
-  private JButton btnBrowserDir;
-  private JButton btnStartServer;
-  private JButton btnStopServer;
-  private JButton btnClose;
+  private JTextField mockHttpServerPath;
+  private JTextField mockAction;
   private JPanel contentPanel;
+  private JComboBox type;
+  private JTextField respDelay;
+  private JCheckBox replaceOrAppend;
+  private JTextArea data;
+  private JButton btnSend;
+  private UndoManager um = new UndoManager();//撤销管理类
   JTabbedPane tabbedPane;
   public MockHttpServerTabbed() {
-    btnBrowserDir.addActionListener(new ActionListener() {
+    btnSend.addActionListener(new ActionListener() {
       /**
        * Invoked when an action occurs.
        *
@@ -33,72 +37,8 @@ public class MockHttpServerTabbed {
 
       }
     });
-    btnStartServer.addActionListener(new ActionListener() {
-      /**
-       * Invoked when an action occurs.
-       *
-       * @param e
-       */
-      @Override
-      public void actionPerformed(ActionEvent e) {
 
-      }
-    });
-    btnStopServer.addActionListener(new ActionListener() {
-      /**
-       * Invoked when an action occurs.
-       *
-       * @param e
-       */
-      @Override
-      public void actionPerformed(ActionEvent e) {
-
-      }
-    });
-    btnClose.addActionListener(new ActionListener() {
-      /**
-       * Invoked when an action occurs.
-       *
-       * @param e
-       */
-      @Override
-      public void actionPerformed(ActionEvent e) {
-        System.out.println("going to close.");
-        JTabbedPane tp = getTabbedPane();
-        if (tp != null) {
-          tp.remove(getContentPanel());
-        }
-
-      }
-    });
-  }
-
-  public void setData(MockHttpServerBean data) {
-    mockHttpServerPort.setText(data.getPort());
-    mockHttpServerVerticleDir.setText(data.getVerticleDir());
-  }
-
-  public void getData(MockHttpServerBean data) {
-    data.setPort(mockHttpServerPort.getText());
-    data.setVerticleDir(mockHttpServerVerticleDir.getText());
-  }
-
-  public boolean isModified(MockHttpServerBean data) {
-    if (mockHttpServerPort.getText() != null ? !mockHttpServerPort.getText().equals(data.getPort()) : data.getPort() != null)
-      return true;
-    if (mockHttpServerVerticleDir.getText() != null ? !mockHttpServerVerticleDir.getText().equals(data.getVerticleDir()) : data.getVerticleDir() != null)
-      return true;
-    return false;
-  }
-
-  private void onOK() {
-    // add your code here
-//        dispose();
-  }
-
-  private void onCancel() {
-    // add your code here if necessary
-//        dispose();
+    GUITools.attachKeyListener(um, mockHttpServerPath, mockAction, respDelay, data);
   }
 
 

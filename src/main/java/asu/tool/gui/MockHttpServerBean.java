@@ -1,25 +1,15 @@
 package asu.tool.gui;
 
+import lombok.Data;
+
+@Data
 public class MockHttpServerBean {
-  private String port;
-  private String verticleDir;
+  private String path;
+  private String mockAction;
+  private boolean replace; // mode
+  private String type;
+  private String respDelay;
+  private String data;
 
-  public MockHttpServerBean() {
-  }
-
-  public String getPort() {
-    return port;
-  }
-
-  public void setPort(final String port) {
-    this.port = port;
-  }
-
-  public String getVerticleDir() {
-    return verticleDir;
-  }
-
-  public void setVerticleDir(final String verticleDir) {
-    this.verticleDir = verticleDir;
-  }
 }
+

@@ -316,7 +316,7 @@ public class GUI {
       if (tabbedPane1.indexOfTab("HttpServerMocker") == -1) {
         tabbedPane1.addTab("HttpServerMocker", mockHttpServerTabbed.getContentPanel());
       }
-      tabbedPane1.setSelectedIndex(tabbedPane1.indexOfTab("AppServerMocker"));
+      tabbedPane1.setSelectedIndex(tabbedPane1.indexOfTab("HttpServerMocker"));
 
     });
     menuTool.add(itemHttpServer);
