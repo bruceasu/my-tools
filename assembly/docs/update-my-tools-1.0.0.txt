@@ -1,6 +1,2 @@
 Functions:
-1. add app client mock
-2. add zookeeper copy
-3. add RabbitMQ test case
-4. add Redis test case
-5. add Zookeeper test case
+1. 添加Http Mock Server Data.

@@ -21,7 +21,6 @@
         <log4j.version>1.2.17</log4j.version>
         <netty.version>4.1.1.Final</netty.version>
         <curator.version>2.11.0</curator.version>
-        <vert.x.version>3.3.3</vert.x.version>
         <rabbitmq.version>3.6.2</rabbitmq.version>
         <source.version>1.8</source.version>
         <target.version>1.8</target.version>
@@ -40,6 +39,12 @@
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>${log4j.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.25</version>
         </dependency>
         <dependency>
             <groupId>ch.randelshofer.quaqua</groupId>
@@ -61,12 +66,12 @@
             <version>${curator.version}</version>
             <exclusions>
                 <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-api</artifactId>
-                </exclusion>
-                <exclusion>
                     <groupId>log4j</groupId>
                     <artifactId>log4j</artifactId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>slf4j-api</artifactId>
+                    <groupId>org.slf4j</groupId>
                 </exclusion>
             </exclusions>
         </dependency>
@@ -100,12 +105,7 @@
             <artifactId>jsch</artifactId>
             <version>0.1.53</version>
         </dependency>
-    
-        <dependency>
-            <groupId>io.vertx</groupId>
-            <artifactId>vertx-web</artifactId>
-            <version>${vert.x.version}</version>
-        </dependency>
+
         <!-- 国人开发的一个工具包 -->
         <dependency>
             <groupId>org.nutz</groupId>
@@ -253,7 +253,8 @@
                         </manifestEntries>
                     </archive>
                     <excludes>
-                        <exclude>**/*.properties</exclude>
+                        <!--<exclude>**/*.properties</exclude>-->
+                        <exclude>**/*.ico</exclude>
                     </excludes>
                 </configuration>
             </plugin>

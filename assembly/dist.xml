@@ -22,13 +22,13 @@
 	-->
     <!-- configuratoin files. -->
     <fileSets>
-        <fileSet>
-            <directory>src/main/resources/</directory>
-            <includes>
-                <include>**</include>
-            </includes>
-            <outputDirectory>conf/</outputDirectory>
-        </fileSet>
+        <!--<fileSet>-->
+            <!--<directory>src/main/resources/</directory>-->
+            <!--<excludes>-->
+                <!--<exclude>*.ico</exclude>-->
+            <!--</excludes>-->
+            <!--<outputDirectory>conf/</outputDirectory>-->
+        <!--</fileSet>-->
         <!-- for split package -->
         <!--<fileSet>-->
         <!--<directory>lib/</directory>-->
