@@ -32,8 +32,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 import javax.swing.*;
@@ -41,7 +39,6 @@ import org.nutz.http.Header;
 import org.nutz.http.Request;
 import org.nutz.http.Response;
 import org.nutz.http.Sender;
-import org.nutz.lang.Lang;
 import org.nutz.lang.Streams;
 import org.nutz.lang.Strings;
 
@@ -204,14 +201,14 @@ public class HttpWin extends JFrame {
             // Transfer-Encoding:chunked;
             boolean isChunked = "chunked".equals(resp.getHeader().get("Transfer-Encoding"));
             int length = resp.getHeader().getInt("Content-Length", -1);
-            byte[] bytes = readBytes(length, isChunked, stream);
+            byte[] bytes = Bytes.readBytes(length, isChunked, stream);
             Streams.safeClose(stream);
             builder.append(Hex.encodeHexString(bytes)).append('\n');
           } else {
             boolean isChunked = "chunked".equals(resp.getHeader().get("Transfer-Encoding"));
             int length = resp.getHeader().getInt("Content-Length", -1);
             InputStream stream = resp.getStream();
-            byte[] bytes = readBytes(length, isChunked, stream);
+            byte[] bytes = Bytes.readBytes(length, isChunked, stream);
             Streams.safeClose(stream);
             if (Strings.isNotBlank(encoding)) {
               builder.append(Bytes.toString(bytes, Charset.forName(encoding)))
@@ -228,30 +225,6 @@ public class HttpWin extends JFrame {
         fireTaskFinished(resultData);
       }
     }
-
-    public byte[] readBytes(int length, boolean isChunked, InputStream in) {
-      byte[] buff = new byte[4096];
-      ByteArrayOutputStream out = new ByteArrayOutputStream();
-      try {
-        int len = in.read(buff);
-        while (len != -1) {
-//                    System.out.println("len = " + len);
-          out.write(buff, 0, Math.min(len, buff.length));
-          if (!isChunked) {
-            if (out.size() == length) {
-              break;
-            }
-          }
-          len = in.read(buff);
-        }
-      } catch (IOException e) {
-        e.printStackTrace();
-        throw Lang.wrapThrow(e);
-      }
-
-      return out.toByteArray();
-    }
-
 
     public Response doGet() {
       String url = bean.getUrl();

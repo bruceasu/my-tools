@@ -15,7 +15,7 @@
 				<include>*</include>
 			</includes>
 			<excludes>
-				<exclude>com.huadao:huadao-monitor</exclude>
+				<exclude>asu.tool:my-tools</exclude>
 			</excludes>
 		</dependencySet>
 	</dependencySets>

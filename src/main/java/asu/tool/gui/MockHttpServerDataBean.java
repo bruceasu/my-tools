@@ -1,9 +1,11 @@
 package asu.tool.gui;
 
 import lombok.Data;
+import lombok.ToString;
 
 @Data
-public class MockHttpServerBean {
+@ToString
+public class MockHttpServerDataBean {
   private String path;
   private String mockAction;
   private boolean replace; // mode

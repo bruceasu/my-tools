@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     
     <modelVersion>4.0.0</modelVersion>
-    <groupId>net.asu</groupId>
+    <groupId>asu.tool</groupId>
     <artifactId>my-tools</artifactId>
     <packaging>jar</packaging>
     <description>tools of suk</description>
@@ -110,7 +110,10 @@
         <dependency>
             <groupId>org.nutz</groupId>
             <artifactId>nutz</artifactId>
-            <version>1.r.55</version>
+            <classifier>asu</classifier>
+            <version>1.r.61-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/nutz-1.r.61-SNAPSHOT-asu.jar</systemPath>
         </dependency>
 
         <dependency>

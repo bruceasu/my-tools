@@ -21,15 +21,18 @@ package asu.tool.util;
  * limitations under the License.
  */
 
+import java.io.ByteArrayOutputStream;
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import java.util.Comparator;
 import java.util.Iterator;
+import org.nutz.lang.Lang;
 import org.nutz.log.Log;
 import org.nutz.log.Logs;
 
@@ -1084,6 +1087,25 @@ public class Bytes {
     result[0] = column;
     return result;
   }
-
+  public static byte[] readBytes(int length, boolean isChunked, InputStream in) {
+    byte[] buff = new byte[4096];
+    ByteArrayOutputStream out = new ByteArrayOutputStream();
+    try {
+      int len = in.read(buff);
+      while (len != -1) {
+        out.write(buff, 0, Math.min(len, buff.length));
+        if (!isChunked) {
+          if (out.size() == length) {
+            break;
+          }
+        }
+        len = in.read(buff);
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
+      throw Lang.wrapThrow(e);
+    }
+    return out.toByteArray();
+  }
 
 }

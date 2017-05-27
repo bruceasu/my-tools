@@ -232,7 +232,7 @@ public class GUI {
     JFrame frame = new JFrame("My Tools");
     GUI gui = new GUI();
     frame.setContentPane(gui.mainPanel);
-    frame.setFont(Font.getFont("Sans Serif"));
+    frame.setFont(Font.getFont("Sans"));
     gui.createMenuBar(frame);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.pack();
@@ -309,14 +309,14 @@ public class GUI {
       dialog.setVisible(true);
 
     });
-    /* Http Server Mocker */
+    /* Http Server Mock Data */
     menuTool.add(itemHttpDlg);
-    JMenuItem itemHttpServer = new JMenuItem("Http Server Mocker");
+    JMenuItem itemHttpServer = new JMenuItem("Http Server Mock Data");
     itemHttpServer.addActionListener(e -> {
-      if (tabbedPane1.indexOfTab("HttpServerMocker") == -1) {
-        tabbedPane1.addTab("HttpServerMocker", mockHttpServerTabbed.getContentPanel());
+      if (tabbedPane1.indexOfTab("HttpServerMockData") == -1) {
+        tabbedPane1.addTab("HttpServerMockData", mockHttpServerTabbed.getContentPanel());
       }
-      tabbedPane1.setSelectedIndex(tabbedPane1.indexOfTab("HttpServerMocker"));
+      tabbedPane1.setSelectedIndex(tabbedPane1.indexOfTab("HttpServerMockData"));
 
     });
     menuTool.add(itemHttpServer);

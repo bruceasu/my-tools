@@ -54,7 +54,15 @@
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.7.4" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.7.4" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.7.0" level="project" />
-    <orderEntry type="library" name="Maven: org.nutz:nutz:1.r.55" level="project" />
+    <orderEntry type="module-library">
+      <library name="Maven: org.nutz:nutz:asu:1.r.61-SNAPSHOT">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/nutz-1.r.61-SNAPSHOT-asu.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.projectlombok:lombok:1.16.16" level="project" />
   </component>
 </module>
