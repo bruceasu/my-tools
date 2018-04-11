@@ -15,7 +15,7 @@
 				<include>*</include>
 			</includes>
 			<excludes>
-				<exclude>asu.tool:my-tools</exclude>
+				<exclude>asu.tooltoolools</exclude>
 			</excludes>
 		</dependencySet>
 	</dependencySets>

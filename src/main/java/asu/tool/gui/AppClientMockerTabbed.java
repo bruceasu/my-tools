@@ -25,7 +25,7 @@
 package asu.tool.gui;
 
 import asu.tool.test.testcase.MockClient;
-import asu.tool.tools.GUITools;
+import asu.tool.tool.GUITools;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.*;

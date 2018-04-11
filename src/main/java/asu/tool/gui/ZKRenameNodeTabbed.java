@@ -26,7 +26,7 @@ package asu.tool.gui;
 
 import static javax.swing.JOptionPane.ERROR_MESSAGE;
 
-import asu.tool.tools.GUITools;
+import asu.tool.tool.GUITools;
 import asu.tool.util.ZKClient;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
