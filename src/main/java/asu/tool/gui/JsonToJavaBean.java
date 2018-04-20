@@ -80,6 +80,7 @@ public class JsonToJavaBean extends JDialog {
 		setTitle("Json to Java");
 		javaCode.getDocument().addDocumentListener(new SyntaxHighlighter(javaCode));
 		GUITools.attachKeyListener(jsonCode, javaPackage, javaClass, javaCode);
+		//javaCode.setEnabled(true);
 	}
 	private void onOK(ActionEvent e) {
 		// add your code here
